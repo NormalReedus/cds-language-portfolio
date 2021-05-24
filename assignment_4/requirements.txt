@@ -1,0 +1,6 @@
+pandas==1.2.4
+tqdm==4.60.0
+spacy==3.0.6
+networkx==2.5.1
+matplotlib==3.4.2
+pygraphviz==1.7

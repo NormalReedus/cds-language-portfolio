@@ -1,0 +1,4 @@
+pandas==1.2.4
+spacy==2.3.5
+spacytextblob
+matplotlib==3.4.2
