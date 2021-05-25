@@ -46,7 +46,7 @@ Your directory should now have at least these files and directories:
     - Since the dataset is not too large, I have included the data we used in class when the repo is cloned. 
 - Run the script `1_sentiment.py`
     - `-d` or `--data_path` will overwrite the path to the `.csv` file (default is `./data/abcnews-date-text.csv`)
-    - `-s` or `--sample_num` will only use a subset of headlines for demo purposes (default is `None`, i.e. all headlines)
+    - `-s` or `--sample_num` will only use a subset of headlines for demo purposes (default is `None`, i.e. all headlines). I recommend running the script on < 100,000 headlines
     - E.g.:
     ```bash
     # all headlines
