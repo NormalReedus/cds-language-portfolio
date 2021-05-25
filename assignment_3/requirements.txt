@@ -1,4 +1,4 @@
 pandas
 spacy==2.3.5
 spacytextblob
-matplotlib==3.4.2
+matplotlib
