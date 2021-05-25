@@ -106,7 +106,7 @@ def main(data_path, min_weight):
     plt.savefig(graph_outpath, dpi=300, bbox_inches="tight")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = "train the hate speech classifier")
+    parser = argparse.ArgumentParser(description = "create a weighted network graph of news stories")
    
     parser.add_argument("-d", "--data_path", type = Path, default = Path('./data/fake_or_real_news.csv'), help = "the path to the csv file containing the news stories")
     parser.add_argument("-w", "--min_weight", type = int, default = 0, help = "the minimum number of times an edge pair should occur to be included in the network")

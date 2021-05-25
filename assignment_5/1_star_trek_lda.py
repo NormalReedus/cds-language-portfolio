@@ -125,7 +125,7 @@ def main(data_path, topic_num):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = "train the hate speech classifier")
+    parser = argparse.ArgumentParser(description = "do topic analysis of Star Trek episodes")
    
     parser.add_argument("-d", "--data_path", type = Path, default = Path('./data/all_series_lines.json'), help = "the path to the Star Trek json data file")
     parser.add_argument("-t", "--topic_num", default = 12, type = int, help = "the number of topics to identify in the Star Trek episodes")
