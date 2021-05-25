@@ -1,7 +1,7 @@
 # Visual Analytics Portfolio Spring 2021
 ### Magnus Bendix Borregaard
 
-This repository contains assignment 2, 3, and 4 of my 2021 spring semester Visual Analytics portfolio, but not the self-chosen assignment (the self-chosen assignment can be found [here](https://github.com/NormalReedus/cds-language-project "GitHub")).
+This repository contains assignment 2, 3, 4, and 5 of my 2021 spring semester Language Analytics portfolio, but not the self-chosen assignment (the self-chosen assignment can be found [here](https://github.com/NormalReedus/cds-language-project "GitHub")).
 
 Every assignment will have its own directory as such:
 ```bash
@@ -9,7 +9,8 @@ Every assignment will have its own directory as such:
 ├── assignment_2
 ├── assignment_3
 ├── assignment_4
-└── README.md
+├── assignment_5
+└── README.md <-- you are here
 ```
 
 Each assignment will have their own virtual environment in their respective project root directories to avoid dependency conflicts.

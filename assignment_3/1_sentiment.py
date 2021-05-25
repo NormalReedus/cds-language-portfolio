@@ -74,14 +74,3 @@ if __name__ == '__main__':
     args = parser.parse_args()	
 
     main(data_path = args.data_path, sample_num = args.sample_num)
-
-# Explanation
-# 1) What (if any) are the general trends?
-
-# Since the smoothed curves are nearly all in a positive integer value space, we can say that headlines generally convey a positive sentiment, but with a cyclical nature.
-
-# 2) What (if any) inferences might you draw from them?
-
-# There is a very negative period in ~mid-2019 that would be very interesting to look closer at. This is probably too early for covid, but what else might have been different for that year?
-
-# Similarly one could speculate about what happened in the months where there are extremely high (~2007 & ~2020) polarity scores as well as the low points.

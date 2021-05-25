@@ -63,6 +63,8 @@ def main(data_path, min_weight):
         writer = csv.writer(fh_out)
         writer.writerows(edgelist)
 
+    # This is where the actual assignment begins - above this is just generating the input
+
     # Load edgelist csv as a list of tuples
     with open(edgepath, newline='') as fh_in:
         reader = csv.reader(fh_in)
@@ -105,11 +107,28 @@ def main(data_path, min_weight):
     graph_outpath = os.path.join(outpath, 'network.png')
     plt.savefig(graph_outpath, dpi=300, bbox_inches="tight")
 
+    # Calculate centrality measures
+    print('Calculating centrality measures')
+    ev = nx.eigenvector_centrality(graph)
+    bc = nx.betweenness_centrality(graph)
+    dg = graph.degree
+
+    # Stitch together as a data frame
+    ev_df = pd.DataFrame(data = ev.items(), columns = ('node', 'eigenvector_centrality'))
+    bc_df = pd.DataFrame(data = bc.items(), columns = ('node', 'betweenness_centrality'))
+    dg_df = pd.DataFrame(data = dg, columns = ('node', 'degree'))
+
+    measures_df = ev_df.join(bc_df.set_index('node'), on = 'node').join(dg_df.set_index('node'), on = 'node')
+
+    # Save as csv
+    measures_outpath = os.path.join(outpath, 'measures.csv')
+    measures_df.to_csv(measures_outpath, index = False)
+
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description = "create a weighted network graph of news stories")
+    parser = argparse.ArgumentParser(description = "create a weighted network graph of named people in news stories and calculate their centrality measures")
    
     parser.add_argument("-d", "--data_path", type = Path, default = Path('./data/fake_or_real_news.csv'), help = "the path to the csv file containing the news stories")
-    parser.add_argument("-w", "--min_weight", type = int, default = 0, help = "the minimum number of times an edge pair should occur to be included in the network")
+    parser.add_argument("-w", "--min_weight", type = int, default = 500, help = "the minimum number of times an edge should occur to be included in the network and calculated measures")
 
     args = parser.parse_args()
     

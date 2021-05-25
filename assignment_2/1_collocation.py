@@ -77,7 +77,7 @@ def write_csv(outfile, O11, mut_inf):
         for collocate in O11:
             fh.write(f'{collocate},{O11[collocate]},{mut_inf[collocate]}\n')
 
-
+            
 
 def main(data_dir, keyword, window_size, sample_num):
     # Output file is named after the keyword and window size

@@ -1,4 +1,4 @@
-# Assignment 2 - Simple Image Search
+# Assignment 2 - String Processing with Python
 
 ## Prerequisites
 You will need to have Bash and Python 3 installed on your device. This script has been tested with Python 3.8.6 on Linux (Ubuntu flavour).
@@ -33,34 +33,29 @@ Your directory should now have at least these files and directories:
 
 ```
 .
+├── 1_collocation.py
 ├── assignment_2_venv/
 ├── create_venv_unix.sh
 ├── data/
-├── image_search.py
 ├── output/
-├── README.MD
-└── requirements.txt
+└── README.MD <-- you are here
 ```
 
 
-- `./data/` should be filled with flower images
-    - Since the dataset is small, these are already included in this repository. Alternatively the images can be downloaded from [this link](https://www.robots.ox.ac.uk/~vgg/data/flowers/17/17flowers.tgz) as such:
-        ```bash
-        wget https://www.robots.ox.ac.uk/~vgg/data/flowers/17/17flowers.tgz # Download zipped file
-        tar zxvf 17flowers.tgz # Unzip file
-        mv -v jpg/*.jpg data/ # Move images from unzipped dir into `./data/`
-        rm -rf jpg && rm 17flowers.tgz # Clean up unzipped dir and unused files
-        ```
-- Run the script `image_search.py` and supply a target filename as the first argument
-- Optionally change the directory containing image files with the flag `-d` or `--data_path`
-- E.g.:
-```bash
-# default data_path
-python image_search.py image_0002.jpg
+- `./data/` should be filled with arbitrary text files
+    - Since the dataset is small, I have already included the corpus of Project Gutenberg novels from class in this repository
+- Run the script `1_collocation.py` and supply a target keyword as the first argument
+    - Optionally change the directory containing text files with the flag `-d` or `--data_dir`
+    - `-w` or `--window_size` will change the number of tokens / words around the keyword to look for collocates in (default is 5)
+    - `-s` or `--sample_size` will change the number of text files from `data_dir` that are used. Use this for demo purposes (default is `None`, which will run on all files)
+    - E.g.:
+    ```bash
+    # full run on all files
+    python 1_collocation.py sister
 
-# own data_path
-python image_search.py image_0002.jpg -d ./some/path/
-```
-- Your terminal should show a readout of the script's progression and finally a note about which image in `data_path` that most closely resembles the target image
-- `./output/` should now contain a `.csv`-file (named after the target image) with a table of the `CHISQR` histogram distances to every other image in the `data_path` ordered from close to distant
+    # demo run on custom data with a bigger window size
+    python 1_collocation.py sister -d ./some/path -w 10 -s 20
+    ```
+    - This can take a while when running on all novels (I recommend trying with < 20)
+- `./output/` should now contain a `.csv`-file (named after the keyword and window size) with every collocate to the keyword, their raw frequency, and mutual information
     - This directory should already have an example output file when cloning the repository
