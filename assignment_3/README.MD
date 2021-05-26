@@ -42,7 +42,7 @@ Your directory should now have at least these files and directories:
 └── requirements.txt
 ```
 
-- `./data/` should contain a `.csv` file with news headlines and their publish data
+- `./data/` should contain a `.csv` file with news headlines and their publish date
     - Since the dataset is not too large, I have included the data we used in class when the repo is cloned. 
 - Run the script `1_sentiment.py`
     - `-d` or `--data_path` will overwrite the path to the `.csv` file (default is `./data/abcnews-date-text.csv`)
