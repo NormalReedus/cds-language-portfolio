@@ -44,7 +44,7 @@ Your directory should now have at least these files and directories:
 ```
 
 - `./data/` should contain `all_series_lines.json` with every spoken line in every series of Star Trek already included when cloning this repo
-    - The data is available on Kaggle [here](https://www.kaggle.com/gjbroughton/start-trek-scripts "Kaggle")
+    - The data is also available on Kaggle [here](https://www.kaggle.com/gjbroughton/start-trek-scripts "Kaggle")
 - Run the script `1_star_trek_lda.py`
     - `-d` or `--data_path` will overwrite the path to the `.json` file (default is `./data/all_series_lines.json`)
     - `-t` or `--topic_num` sets the number of topics to identify (default is 12)
